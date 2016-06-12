@@ -1,0 +1,177 @@
+
+// import 自己的變數
+@import "helpers/variables"
+
+
+// **** 方法一：載入全部的Bootstrap 4 **** //
+//
+// @import "bootstrap"
+
+
+// **** 方法二：自選要的元件 **** //
+//
+// Core variables and mixins
+@import "variables"
+@import "mixins"
+
+// Reset and dependencies
+@import "normalize"
+@import "print"
+
+// Core CSS
+@import "reboot"
+@import "type"
+@import "images"
+@import "code"
+@import "grid"
+@import "tables"
+@import "forms"
+@import "buttons"
+
+// Components
+@import "animation"
+@import "dropdown"
+@import "button-group"
+@import "input-group"
+@import "custom-forms"
+@import "nav"
+@import "navbar"
+@import "card"
+@import "breadcrumb"
+@import "pagination"
+// @import "pager"
+// @import "labels"
+@import "jumbotron"
+@import "alert"
+@import "progress"
+@import "media"
+@import "list-group"
+@import "responsive-embed"
+@import "close"
+
+// Components w/ JavaScript
+@import "modal"
+@import "tooltip"
+@import "popover"
+@import "carousel"
+
+// Utility classes
+@import "utilities"
+// @import "utilities-background"
+// @import "utilities-spacing"
+// @import "utilities-responsive"
+
+@import compass/reset, compass/css3, phantas
+
+img
+  display: block
+
+.center-block 
+  display: block
+  margin-right: auto
+  margin-left: auto
+
+body
+  background: 
+    color: #191919
+.sidebar
+  margin:
+    bottom: 40px
+  +opacity(0)
+  +transition(all, 1s,ease)
+  &.active
+    +opacity(1)
+  &__logo
+    .lightbulb
+      position: relative
+      width: 200px
+      top: -300px
+      cursor: pointer
+      +transition(top, 1s,ease)
+      &.active
+        top: -30px
+
+  &__title
+    position: relative
+    text-align: center
+    h3
+      font-size: 20px
+      margin:
+        top: 20px
+        bottom: 20px
+      +opacity(0)
+      +transition(all, 1s,ease)
+      &.active
+        +opacity(1)
+    h1
+      font-size: 40px
+      font-weight: bold
+      margin:
+        bottom: 30px
+      +opacity(0)
+      +transition(all, 1s,ease)
+      &.active
+        +opacity(1)
+      &.clicked
+        color: #FBF9D3
+  &__photo
+    +opacity(0)
+    +transition(all, 2s,ease)
+    margin: 30px
+    &.active
+      +opacity(1)
+  &__info
+    text-align: center
+    padding: 30px
+    div
+      margin: 10px 0
+      color: #FBF9D3
+      a
+        color: #666
+        &:hover
+          color: #FBF9D3
+    .title
+      font-size: 18px
+      font-weight: bold
+
+.item
+  padding: 0
+  background-color: #333
+  &__card
+    margin: 0 
+    padding: 0
+    overflow: hidden
+    &:hover
+      .hoverbox
+        +opacity(1)
+    .hoverbox
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      +opacity(0)
+      background-color: rgba(0,0,0,.75)
+      +transition(opacity, 0.3s, ease-out)
+      padding: 20px
+      .hover-title
+        color: #FBF9D3
+        font-weight: bold
+        font-size: 20px
+        margin-bottom: 10px
+        padding-bottom: 6px
+        border-bottom: 1px solid #888
+        line-height: 150%
+      .hover-content
+        font-size: 14px
+        line-height: 150%
+        color: #fff
+      .hover-btn
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        padding: 10px
+        text-align: center
+        background-color: #000
+        color: #FBF9D3

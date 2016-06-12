@@ -1,0 +1,138 @@
+// Welcome to Compass.
+// In this file you should write your main styles. (or centralize your imports)
+// Import this file using the following HTML or equivalent:
+// <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+//
+//
+//圖片置入 mixin
+//在sass裡面利用 @include image()
+//並且在括弧中直接加入檔案名稱 如 image("1.jpg")
+
+// -- BORDER _BOX -- //
+*, *:before, *:after
+  @include box-sizing(border-box)
+
+
+// -- 圖片 -- //
+=img($url, $repeat: no-repeat)
+  background: image-url($url)
+  width: image-width($url)
+  height: image-height($url)
+  background-repeat: $repeat
+  
+=img-p($url, $repeat: no-repeat)
+  background: image-url($url)
+  background-repeat: $repeat
+
+// -- 圖片置中 -- //
+=centerMe($pos: both)
+  position: absolute
+  @if $pos == both
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+  @else if $pos == top
+    left: 50%
+    transform: translate(-50%, 0)
+  @else if $pos == left
+    top: 50%
+    transform: translate(0, -50%)
+  @else if $pos == right
+    top: 50%
+    right: 0
+    transform: translate(0, -50%)
+  @else if $pos == bottom
+    bottom: 0
+    left: 50%
+    transform: translate(-50%, 0)
+
+
+
+=placeholder($color)
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &.placeholder 
+    color: $color
+
+.inline-block
+  display: inline-block
+
+// -- FLOAT -- //
+.float-left
+  float: left
+
+.float-right
+  float: right
+
+// -- CLEARFIX -- //
+.clearfix
+  *zoom: 1
+  &:before,
+  &:after
+    content: " "
+    display: table
+  &:after
+    clear: both
+
+=clearfix
+  *zoom: 1
+  &:before,
+  &:after
+    content: " "
+    display: table
+  &:after
+    clear: both
+
+// -- 動畫 -- //
+=transition($transition-property, $transition-time: 1s, $method: ease) 
+  -webkit-transition: $transition-property $transition-time $method
+  -moz-transition: $transition-property $transition-time $method
+  -ms-transition: $transition-property $transition-time $method
+  -o-transition: $transition-property $transition-time $method
+  transition: $transition-property $transition-time $method
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=animation($str, $duration, $type: linear, $times: infinite, $delay: 0s)
+  -webkit-animation: #{$str}
+  -moz-animation: #{$str}
+  -o-animation: #{$str}
+  animation: #{$str}
+  -webkit-animation-duration: #{$duration}
+  -moz-animation-duration: #{$duration}
+  -o-animation-duration: #{$duration}
+  animation-duration: #{$duration}
+  -webkit-animation-timing-function: #{$type}
+  -moz-animation-timing-function: #{$type}
+  -o-animation-timing-function: #{$type}
+  animation-timing-function: #{$type}
+  -webkit-animation-iteration-count: #{$times}
+  -moz-animation-iteration-count: #{$times}
+  -o-animation-iteration-count: #{$times}
+  animation-iteration-count: #{$times}
+  -webkit-animation-delay: #{$delay}
+  -moz-animation-delay: #{$delay}
+  -o-animation-delay: #{$delay}
+  animation-delay: #{$delay}  
+
+=duration($time)
+  -webkit-animation-duration: #{$time}
+  -moz-animation-duration: #{$time}
+  -o-animation-duration: #{$time}
+  animation-duration: #{$time}
+
+=delay($time)
+  -webkit-animation-delay: #{$time}
+  -moz-animation-delay: #{$time}
+  -o-animation-delay: #{$time}
+  animation-delay: #{$time}
